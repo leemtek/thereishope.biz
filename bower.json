@@ -1,34 +1,24 @@
 {
-  "name": "bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "name": "thereishope.biz",
+  "homepage": "https://github.com/leemtek/thereishope.biz",
+  "authors": [
+    "Duane Leem <duaneleem@alumni.ggu.edu>"
+  ],
+  "description": "",
+  "main": "",
   "keywords": [
-    "css",
-    "js",
-    "less",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
+    "football"
   ],
-  "homepage": "http://getbootstrap.com",
   "license": "MIT",
-  "moduleType": "globals",
-  "main": [
-    "less/bootstrap.less",
-    "dist/js/bootstrap.js"
-  ],
   "ignore": [
-    "/.*",
-    "_config.yml",
-    "CNAME",
-    "composer.json",
-    "CONTRIBUTING.md",
-    "docs",
-    "js/tests",
-    "test-infra"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
-    "jquery": "1.9.1 - 2"
+    "bootstrap": "^3.3.6"
   }
 }

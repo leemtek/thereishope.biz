@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="thereishope">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,9 @@
 
         <!-- Magnific Popup core CSS file -->
         <link href="assets/css/magnific-popup.css" rel="stylesheet">
+
+        <!-- Google reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 
         <!-- Custom -->
         <link href="assets/css/custom.css" rel="stylesheet">
@@ -37,6 +40,7 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+                        <li><a href="#main-space">Home</a></li>
                         <li><a href="#two">Skill Development Camp</a></li>
                         <li><a href="#three">Speaking Engagements</a></li>
                         <li><a href="#four">About</a></li>
@@ -108,11 +112,11 @@
                     </div>
                     <div class="popup-gallery col-md-6">
                         <center>
-                            <a href="images/Training 1.jpg"><img src="assets/images/Training 1.jpg" height="100px"></a>
-                            <a href="images/Training 2.jpg"><img src="assets/images/Training 2.jpg" height="100px"></a>
-                            <a href="images/Training 3.jpg"><img src="assets/images/Training 3.jpg" height="100px"></a>
-                            <a href="images/Training 4.jpg"><img src="assets/images/Training 4.jpg" height="100px"></a>
-                            <a href="images/Training 5.jpg"><img src="assets/images/Training 5.jpg" height="100px"></a>
+                            <a href="assets/images/Training 1.jpg"><img src="assets/images/Training 1.jpg" height="100px"></a>
+                            <a href="assets/images/Training 2.jpg"><img src="assets/images/Training 2.jpg" height="100px"></a>
+                            <a href="assets/images/Training 3.jpg"><img src="assets/images/Training 3.jpg" height="100px"></a>
+                            <a href="assets/images/Training 4.jpg"><img src="assets/images/Training 4.jpg" height="100px"></a>
+                            <a href="assets/images/Training 5.jpg"><img src="assets/images/Training 5.jpg" height="100px"></a>
                         </center>
                     </div>
                 </div>
@@ -207,45 +211,100 @@
 
                         For more information, call 510.224-3511 or submit your request via the contact form on this page.</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" ng-controller="ctrlSendEmail">
                         <h2>Registration form</h2>
-                        <form role="form">
+                        <form role="form" name="formContactUs" class="margin-clear" novalidate="">
                             <div class="form-group">
                                 <label for="name">Name:</label>
-                                <input type="name" class="form-control" id="name" placeholder="Enter name">
+                                <input type="text" class="form-control"
+                                    ng-class="{ 'has-error': formContactUs.frmName.$error.required && !formContactUs.frmName.$pristine }"
+                                    id="frmName"
+                                    placeholder="First &amp; Last Name"
+                                    ng-model="userDetails.name"
+                                    required
+                                /><!-- /frmName -->
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="t-shirt-size">Student t-shirt size:</label>
-                                        <input type="t-shirt size" class="form-control" id="t-shirt-size" placeholder="Enter size">
+                                        <select class="form-control" ng-model="userDetails.shirtSize" required>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L" selected>L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                        </select>
                                     </div>
                                         <div class="col-md-6">
-                                        <label for="age">Student age:</label>
-                                        <input type="age" class="form-control" id="age" placeholder="Enter age">
+                                        <label for="age">Student Age:</label>
+                                        <input type="number" class="form-control"
+                                            ng-class="{ 'has-error': formContactUs.frmAge.$error.required && !formContactUs.frmAge.$pristine }"
+                                            id="frmAge"
+                                            placeholder="Age"
+                                            ng-model="userDetails.studentAge"
+                                            required
+                                        /><!-- /frmAge -->
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="school-city-state">Student school, city, and state:</label>
-                                <input type="school-city-state" class="form-control" id="school-city-state" placeholder="Enter school, city, and state">
+                                <label for="school-city-state">Student School, City, and State:</label>
+                                <input type="text" class="form-control"
+                                    ng-class="{ 'has-error': formContactUs.frmSchool.$error.required && !formContactUs.frmSchool.$pristine }"
+                                    id="frmSchool"
+                                    placeholder="School, City, and State"
+                                    ng-model="userDetails.studentSchool"
+                                    required
+                                /><!-- /frmSchool -->
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <input type="email" class="form-control"
+                                    ng-class="{ 'has-error': formContactUs.frmEmail.$error.required && !formContactUs.frmEmail.$pristine }"
+                                    id="frmEmail"
+                                    placeholder="User@Domain.com"
+                                    ng-model="userDetails.email"
+                                    required
+                                /><!-- /frmEmail -->
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox"> Check here to receive email updates</label>
+                                <label>
+                                    <input type="checkbox"
+                                        ng-class="{ 'has-error': formContactUs.frmEmailUpdates.$error.required && !formContactUs.frmEmailUpdates.$pristine }"
+                                        id="frmEmailUpdates"
+                                        ng-model="userDetails.isToReceiveUpdates"
+                                    /><!-- /frmEmailUpdates -->
+                                    Check here to receive email updates
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone:</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
+                                <input type="text" class="form-control"
+                                    ng-class="{ 'has-error': formContactUs.frmPhone.$error.required && !formContactUs.frmPhone.$pristine }"
+                                    id="frmPhone"
+                                    placeholder="Enter Phone"
+                                    ng-model="userDetails.phone"
+                                    required
+                                /><!-- /frmEmail -->
                             </div>
                             <div class="form-group">
                                 <label for="message">Message:</label>
-                                <textarea class="form-control" rows="5" id="message"></textarea>
+                                <textarea id="frmMessage" rows="5" class="form-control"
+                                    ng-class="{ 'has-error': formContactUs.frmMessage.$error.required && !formContactUs.frmMessage.$pristine }"
+                                    placeholder="Message"
+                                    ng-model="userDetails.message"
+                                    required
+                                ></textarea><!-- /frmMessage -->
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <div vc-recaptcha key="'6LdSGCQTAAAAAC0TuE_hJGarEIHPY9grUSIFiw7T'"></div><br />
+                            <button type="button" class="btn btn-primary text-white" ng-click="fnClearForm();">Clear</button>
+                            <button type="button" class="btn btn-default" id="submit"
+                                ng-click="fnSendForm()"
+                                ng-class="{'disabled': formContactUs.$invalid}"
+                                ng-disabled="formContactUs.$invalid"
+                            >Send</button>
                         </form>
                     </div>
                 </div>
@@ -254,11 +313,11 @@
 
         <footer>
             <div class="container">
-                <div id="smi">
-                    <a href="https://www.facebook.com/coachtc"><img src="assets/images/Facebook icon.png" height="45px"></a> Thomas Coleman<br>
-                    <a href="https://www.instagram.com/coachtc333/"><img src="assets/images/Instagram icon.png" height="45px"></a> Thomas Coleman
+                <div id="smi" class="text-center">
+                    <a href="https://www.facebook.com/coachtc"><img src="assets/images/Facebook icon.png" class="width-35px"></a>&nbsp;
+                    <a href="https://www.instagram.com/coachtc333/"><img src="assets/images/Instagram icon.png" class="width-35px"></a>&nbsp;&nbsp;
+                    Copyright &copy;. There is Hope Organization. All rights reserved.
                 </div>
-                <p>Copyright ©. There is Hope Organization.. All rights reserved.</p>
             </div>
         </footer>
 
@@ -271,8 +330,16 @@
         <!-- Magnific Popup core JS file -->
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
+        <!-- ==================================================================
+            AngularJS Components
+        ================================================================== -->
+        <script src="assets/bower_components/angular/angular.min.js"></script>
+        <script src="assets/bower_components/angular-recaptcha/release/angular-recaptcha.min.js"></script>
+        <script src="assets/js/angular/app.js"></script>
+        <script src="assets/js/angular/services.js"></script>
+        <script src="assets/js/angular/controllers.js"></script>
+
         <!-- Custom JS file -->
         <script src="assets/js/custom.js"></script>
-
     </body>
 </html>

@@ -80,7 +80,7 @@ footer {
 	.navbar-nav {
 		float: right;
 	}
-	
+
 	.navbar-inverse .navbar-brand {
 		padding: 15px 10px 15px 10px;
 	}
@@ -89,3 +89,22 @@ footer {
 		padding: 15px 10px;
 	}
 }
+
+
+/* ===========================================================================
+    Footer Elements
+=========================================================================== */
+/* Send Button */
+.btn-default.disabled.focus, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default[disabled].focus, .btn-default[disabled]:focus, .btn-default[disabled]:hover, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover {
+    background-color: #dc5b5b;
+    border-color: #dc5b5b;
+}
+
+
+/* ================================================================================
+    Common Styles
+================================================================================ */
+.width-35px { width: 35px; }
+
+.text-white { color: #ffffff; }
+.text-black { color: #000000; }

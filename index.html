@@ -217,7 +217,7 @@
                         <h2>Registration form</h2>
                         <form role="form" name="formContactUs" class="margin-clear" novalidate="">
                             <div class="form-group">
-                                <label for="name">Name:</label>
+                                <label for="frmName">Name:</label>
                                 <input type="text" class="form-control"
                                     ng-class="{ 'has-error': formContactUs.frmName.$error.required && !formContactUs.frmName.$pristine }"
                                     id="frmName"
@@ -229,8 +229,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="t-shirt-size">Student t-shirt size:</label>
-                                        <select class="form-control" ng-model="userDetails.shirtSize" required>
+                                        <label for="frmShirtSize">Student t-shirt size:</label>
+                                        <select class="form-control" id="frmShirtSize" ng-model="userDetails.shirtSize" required>
                                             <option value="XS">XS</option>
                                             <option value="S">S</option>
                                             <option value="M">M</option>
@@ -240,7 +240,7 @@
                                         </select>
                                     </div>
                                         <div class="col-md-6">
-                                        <label for="age">Student Age:</label>
+                                        <label for="frmAge">Student Age:</label>
                                         <input type="number" class="form-control"
                                             ng-class="{ 'has-error': formContactUs.frmAge.$error.required && !formContactUs.frmAge.$pristine }"
                                             id="frmAge"
@@ -252,7 +252,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="school-city-state">Student School, City, and State:</label>
+                                <label for="frmSchool">Student School, City, and State:</label>
                                 <input type="text" class="form-control"
                                     ng-class="{ 'has-error': formContactUs.frmSchool.$error.required && !formContactUs.frmSchool.$pristine }"
                                     id="frmSchool"
@@ -282,7 +282,7 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone:</label>
+                                <label for="frmPhone">Phone:</label>
                                 <input type="text" class="form-control"
                                     ng-class="{ 'has-error': formContactUs.frmPhone.$error.required && !formContactUs.frmPhone.$pristine }"
                                     id="frmPhone"
@@ -292,7 +292,7 @@
                                 /><!-- /frmEmail -->
                             </div>
                             <div class="form-group">
-                                <label for="message">Message:</label>
+                                <label for="frmMessage">Message:</label>
                                 <textarea id="frmMessage" rows="5" class="form-control"
                                     ng-class="{ 'has-error': formContactUs.frmMessage.$error.required && !formContactUs.frmMessage.$pristine }"
                                     placeholder="Message"

@@ -16,7 +16,7 @@
                     "isToReceiveUpdates": false,
                     "phone": null,
                     "message": null
-                } // contact
+                } // userDetails
 
                 // Reset the Send button.
                 $('#submit').text("Send");

@@ -1,0 +1,113 @@
+section {
+	font-size: 16px;
+	padding: 80px 0px;
+}
+
+h4 {
+	line-height: 22px;
+}
+
+footer {
+	padding-top: 5px;
+	background-color: black;
+	color: gold;
+}
+
+.btn-default {
+	background-color: #AF272F;
+	color: white;
+}
+
+.navbar-inverse .navbar-brand {
+	color: gold;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: gold;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+	color: lightyellow;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+	color: lightyellow;
+}
+
+#main-space {
+	height: 51px;
+	width: 100%;
+}
+
+#one {
+	padding-top: 10px;
+}
+
+#one h2 {
+	margin-top: 0px;
+}
+
+#two {
+	background-color: #AF272F;
+	color: white;
+}
+
+#four {
+	background-color: gold;
+}
+
+.popup-gallery img {
+	margin: 2px 0px;
+}
+
+#smi img {
+	margin: 5px 5px 5px 0px;
+}
+
+@media (max-width: 479px) {
+	#three iframe {
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	#main-img {
+		padding: 0px;
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar-nav {
+		float: right;
+	}
+
+	.navbar-inverse .navbar-brand {
+		padding: 15px 10px 15px 10px;
+	}
+
+	.nav>li>a {
+		padding: 15px 10px;
+	}
+}
+
+
+/* ===========================================================================
+    Footer Elements
+=========================================================================== */
+/* Send Button */
+.btn-default.disabled.focus, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default[disabled].focus, .btn-default[disabled]:focus, .btn-default[disabled]:hover, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover {
+    background-color: #dc5b5b;
+    border-color: #dc5b5b;
+}
+
+
+/* ================================================================================
+    Common Styles
+================================================================================ */
+.width-35px { width: 35px; }
+
+.margin-bottom-20 { margin-bottom: 20px; }
+.margin-bottom-40 { margin-bottom: 40px; }
+
+.text-white { color: #ffffff; }
+.text-black { color: #000000; }

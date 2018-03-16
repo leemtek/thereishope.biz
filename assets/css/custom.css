@@ -35,7 +35,7 @@ footer {
 }
 
 #main-space {
-	height: 51px;
+	height: 91px;
 	width: 100%;
 }
 
@@ -106,6 +106,8 @@ footer {
 ================================================================================ */
 .width-35px { width: 35px; }
 
+.margin-bottom-10 { margin-bottom: 8px; }
+.margin-bottom-15 { margin-bottom: 15px; }
 .margin-bottom-20 { margin-bottom: 20px; }
 .margin-bottom-40 { margin-bottom: 40px; }
 
